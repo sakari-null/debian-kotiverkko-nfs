@@ -1,5 +1,5 @@
 # Dokumentaatio: NFS-tiedostopalvelimen ja SSH-avaintunnistautumisen pystytys
-**Tekijä:** [Sinun Nimesi] / Linux Junior Järjestelmäasiantuntija -harjoitus
+**Tekijä:** Sakari Noronen / Linux Junior Järjestelmäasiantuntija -harjoitus
 **Alusta:** Debian 13 (Trixie)
 **Päivämäärä:** 4. syyskuuta 2026
 

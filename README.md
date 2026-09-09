@@ -66,3 +66,7 @@ Projektin aikana kohdattiin ja ratkaistiin seuraavat kriittiset vikatilanteet:
 - **Syy:** Fyysiset tiedostot olivat tallella, mutta sovelluksen paikallinen välimuisti ja hakuindeksi nollautuivat, jolloin sovellus oli hetkellisesti "sokea" tiedostoille.
 - **Ratkaisu:** Käynnistettiin puhelin uudelleen automaattisen mediaindeksoinnin käynnistämiseksi ja palautettiin tiedostojen näkyvyys Samsungin sovelluksen omista syvemmistä asetuksista.
 
+### Ongelma 6: Verkkokansio ei näy työpöydän tiedostonhallinnassa (Nautilus)
+- **Oire:** `mount`-komento onnistui, mutta jaettu kansio ei ilmestynyt näkyviin GNOME-työpöydän Nautilus-tiedostonhallinnassa.
+- **Syy:** Järjestelmän sisäiset `/mnt/`-hakemistot pidetään oletuksena piilossa graafisessa käyttöliittymässä. Lisäksi fstab-tiedostoon syötettiin aluksi virheellinen polku `/mnt/KannettavanJako`, jota ei ollut olemassa (Linux-järjestelmä antoi virheen `mount point does not exist`).
+- **Ratkaisu:** Luotiin uusi liitospiste suoraan käyttäjän kotihakemistoon (`mkdir -p ~/KannettavanJako`) ja korjattiin polku tiedostoon `/etc/fstab` muotoon `/home/sakari/KannettavanJako`. Järjestelmä päivitettiin komennoilla `sudo systemctl daemon-reload` ja `sudo mount -a`, jolloin verkkolevy pongahti suoraan osaksi työpöytäympäristön päänäkymää.
